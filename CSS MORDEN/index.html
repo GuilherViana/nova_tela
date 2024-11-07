@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial com Upload</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  
+    <div class="content">
+        <header>
+            <div class="header-container">
+                <div class="header-nav">
+                    <input type="text" class="search-bar" placeholder="Pesquisar...">
+                    <button class="upload-btn" data-toggle="modal" data-target="#createDocumentModal">Upload</button>
+                    <button class="favorite-btn" data-toggle="modal" data-target="#favoritesModal">Favoritar</button>
+                    <button class="recent-btn" data-toggle="modal" data-target="#recentModal">Recentes</button>
+                </div>
+            </div>
+        </header>
+
+       
+        <section class="upload-section">
+            <div class="container">
+                <h2>Arquivos Enviados</h2>
+                <div class="file-list">
+                    <div class="file-item">
+                        <span class="file-name">documento.pdf</span>
+                        <button class="delete-btn">Excluir</button>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-name">imagem.jpg</span>
+                        <button class="delete-btn">Excluir</button>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-name">planilha.xlsx</span>
+                        <button class="delete-btn">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+   
+    <div class="modal fade" id="createDocumentModal" tabindex="-1" role="dialog" aria-labelledby="createDocumentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createDocumentModalLabel">Criar Novo Documento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="Upload" enctype="multipart/form-data" method="post">
+                        <div class="form-group">
+                            <label for="file">Escolher Documento</label>
+                            <input type="file" name="file" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-upload"></i> Enviar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="favoritesModalLabel">Favoritos</h5>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+    <div class="modal fade" id="recentModal" tabindex="-1" role="dialog" aria-labelledby="recentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recentModalLabel">Itens Recentes</h5>
+                </div>
+                <div class="modal-body">
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts do Bootstrap para modais -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
